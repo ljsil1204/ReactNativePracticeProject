@@ -62,6 +62,7 @@ const App: () => Node = () => {
   return (
     <View style ={styles.container}>
       <Text style = {styles.hello}>Hellow Wolrd</Text>
+      <Text>main</Text>
     </View>
   );
 };
@@ -71,9 +72,6 @@ const styles = StyleSheet.create({
       flex : 1,
       justifyContent : 'center',
       alignItems : 'center'
-  },
-  hello : {
-    color : 'Yellow'
   }
 });
 
