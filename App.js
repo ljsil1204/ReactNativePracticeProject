@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import type {Node} from 'react';
 import {
   SafeAreaView,
@@ -14,6 +14,7 @@ import {
   StatusBar,
   StyleSheet,
   Text,
+  Image,
   useColorScheme,
   View,
 } from 'react-native';
@@ -25,6 +26,23 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+
+class Dog extends Component {
+  render() {
+    let dogImg = '';
+    if(this.props.type === 'one') {
+      dogImg = require('./assets/dog.jpg');
+    }else if(this.props.type === 'two') {
+      dogImg = require('./assets/dog2.jpg');
+    }
+
+    return (
+      <View>
+        <Image source={dogImg} style={{width:100, height:100}} />
+      </View>
+    );
+  }
+}
 
 const Section = ({children, title}): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -62,7 +80,8 @@ const App: () => Node = () => {
   return (
     <View style ={styles.container}>
       <Text style = {styles.hello}>Hellow Wolrd</Text>
-      <Text>main</Text>
+      <Dog type = 'one' />
+      <Dog type = 'two' />
     </View>
   );
 };
