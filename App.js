@@ -26,7 +26,14 @@ function HomeScreen({navigation}) {
   return (
     <View style = {styles.container}>
       <Text>Home Screen입니다.</Text>
-      <Button title='페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/>
+      <Button 
+        title='페이지 이동' 
+        onPress={() => 
+        navigation.navigate('Profile', { 
+          name : 'Jin',
+          itemId: 86,
+          otherParam: 'anything you want here', 
+        })}/>
     </View>
   )
 
@@ -34,10 +41,17 @@ function HomeScreen({navigation}) {
 
 function ProfileScreen({navigation, route}) {
 
+  const { itemId, otherParam } = route.params; 
+  // const otherParam = route.params.otherParam; 와 동일
+
   return (
     <View style = {styles.container}>
       <Text>{route.params.name}의 ProfileScreen입니다.</Text>
       {/* <Button title='프로필 페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/> */}
+
+      <Text>itemId : {itemId} </Text>
+      <Text>itemId : {otherParam} </Text>
+
       <Button title='프로필 페이지 이동' onPress={() => navigation.push('Profile', { name : 'Jin' }) }/>
       <Button title="Go back" onPress={() => navigation.goBack()} />
       <Button title="popToTop" onPress={() => navigation.popToTop()} />
