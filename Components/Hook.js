@@ -7,8 +7,8 @@
  */
 
 import type {Node} from 'react';
-import React, {Fragment, Component, useState } from 'react';
-import {StyleSheet, View, Text, Button,} from 'react-native';
+import React, {useState, useEffect } from 'react';
+import {StyleSheet, View, Text, Button, FlatList,} from 'react-native';
 
 
 // 클래스형 컴포넌트
@@ -47,12 +47,30 @@ const Hook: () => Node = () => {
 
   const[name, setName] = useState('jin');
 
+  const [loading, setLoading] = useState(true);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+    .then((response) => response.json())
+    .then((users) => {
+      setUsers(users);
+      setLoading(false);
+    });
+  });
+
   return (
 
     <View style = {styles.container}>
       <Text>Hook 페이지입니다.</Text>
       <Text>{name}님</Text>
       <Button title='이름수정' onPress={() => setName('sil')}></Button>
+
+      <FlatList
+        data={users}
+        renderItem={({item}) => <Text>{item.name}</Text> }
+        keyExtractor={item => item.id}
+      />
     </View>
 
   );
