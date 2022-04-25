@@ -37,6 +37,8 @@ function ProfileScreen({navigation, route}) {
   return (
     <View style = {styles.container}>
       <Text>{route.params.name}의 ProfileScreen입니다.</Text>
+      {/* <Button title='프로필 페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/> */}
+      <Button title='프로필 페이지 이동' onPress={() => navigation.push('Profile', { name : 'Jin' }) }/>
     </View>
   )
 
@@ -64,6 +66,8 @@ const styles = StyleSheet.create({
     flex : 1,
     alignItems : 'center',
     justifyContent : 'center'
+
+
   }
 });
 
