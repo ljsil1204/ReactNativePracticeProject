@@ -31,7 +31,7 @@ function HomeScreen({navigation}) {
         onPress={() => 
         navigation.navigate('Profile', { 
           name : 'Jin',
-          itemId: 86,
+          // itemId: 86,
           otherParam: 'anything you want here', 
         })}/>
     </View>
@@ -70,7 +70,11 @@ const App: () => Node = () => {
             component={HomeScreen}
             options={{ title: 'Welcome' }}
           />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen 
+          name="Profile" 
+          component={ProfileScreen} 
+          initialParams = {{itemId : 1000}} 
+        />
       </Stack.Navigator>
     </NavigationContainer>
 
