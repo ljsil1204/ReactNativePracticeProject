@@ -39,6 +39,7 @@ function ProfileScreen({navigation, route}) {
       <Text>{route.params.name}의 ProfileScreen입니다.</Text>
       {/* <Button title='프로필 페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/> */}
       <Button title='프로필 페이지 이동' onPress={() => navigation.push('Profile', { name : 'Jin' }) }/>
+      <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   )
 
