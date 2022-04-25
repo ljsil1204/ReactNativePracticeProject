@@ -9,6 +9,7 @@
 import React, {Fragment, Component } from 'react';
 import {
   StyleSheet,
+  SafeAreaView,
   View,
   Image,
   Text,
@@ -18,7 +19,7 @@ class App extends Component {
   render() {
     return (
 
-      <View style = {styles.container}>
+      <SafeAreaView style = {styles.container}>
         
         {/* <View style = {{flex:1, backgroundColor : 'red'}}></View>
         <View style = {{flex:2, backgroundColor : 'yellow'}}></View>
@@ -29,7 +30,7 @@ class App extends Component {
         <View style = {{width:50, height:50, backgroundColor : 'yellow'}}></View>
         <View style = {{width:50, height:50, backgroundColor : 'blue'}}></View>
 
-      </View>
+      </SafeAreaView>
 
     );
   }
@@ -38,7 +39,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   container : {
     flex : 1,
-    flexDirection:'row'
+    // flexDirection:'row'
   }
 });
 
