@@ -39,11 +39,17 @@ class App extends Component {
 const styles = StyleSheet.create({
   container : {
     flex : 1,
+
     // flexDirection:'row'
 
-    // justifyContent : 'flex-start' // 처음 위치
-    // justifyContent : 'center' // 중간 위치
-    justifyContent : 'flex-end' // 아래 위치
+    // justifyContent : 'flex-start', // 세로 처음 위치
+    justifyContent : 'center', // 세로 중간 위치
+    // justifyContent : 'flex-end', // 세로 아래 위치
+
+    alignItems : 'center' // 가로 중간 위치
+    // alignItems : 'flex-end' //가로 맨끝 위치
+    // alignItems : 'stretch' // width 적용 하지 않은 상태 -> 가로 전체 영역
+
   }
 });
 
