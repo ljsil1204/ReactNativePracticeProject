@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
   container : {
     flex : 1,
     // flexDirection:'row'
+
+    // justifyContent : 'flex-start' // 처음 위치
+    // justifyContent : 'center' // 중간 위치
+    justifyContent : 'flex-end' // 아래 위치
   }
 });
 
