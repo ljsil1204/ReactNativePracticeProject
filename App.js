@@ -40,6 +40,7 @@ function ProfileScreen({navigation, route}) {
       {/* <Button title='프로필 페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/> */}
       <Button title='프로필 페이지 이동' onPress={() => navigation.push('Profile', { name : 'Jin' }) }/>
       <Button title="Go back" onPress={() => navigation.goBack()} />
+      <Button title="popToTop" onPress={() => navigation.popToTop()} />
     </View>
   )
 
