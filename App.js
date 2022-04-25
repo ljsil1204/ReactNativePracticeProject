@@ -41,6 +41,11 @@ class App extends Component {
           </View>
 
         </View>
+
+        <View style = {{width : 50, height : 50, backgroundColor : 'red'}} ></View>
+        <View style = {{width : 100, height : 100, backgroundColor : 'skyblue'}} ></View>
+        <View style = {{width : 140, height : 140, backgroundColor : 'skyblue'}} ></View>
+
       </View>
 
     );
