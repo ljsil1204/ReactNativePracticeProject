@@ -19,9 +19,16 @@ class App extends Component {
     return (
 
       <View style = {styles.container}>
-        <View style = {{flex:1, backgroundColor : 'red'}}></View>
+        
+        {/* <View style = {{flex:1, backgroundColor : 'red'}}></View>
         <View style = {{flex:2, backgroundColor : 'yellow'}}></View>
-        <View style = {{flex:3, backgroundColor : 'blue'}}></View>
+        <View style = {{flex:3, backgroundColor : 'blue'}}></View> */}
+
+
+        <View style = {{width:50, height:50, backgroundColor : 'red'}}></View>
+        <View style = {{width:50, height:50, backgroundColor : 'yellow'}}></View>
+        <View style = {{width:50, height:50, backgroundColor : 'blue'}}></View>
+
       </View>
 
     );
@@ -30,7 +37,8 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container : {
-    flex : 1
+    flex : 1,
+    flexDirection:'row'
   }
 });
 
