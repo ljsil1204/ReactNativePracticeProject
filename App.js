@@ -6,6 +6,9 @@
  * @flow strict-local
  */
 
+import type {Node} from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, {Fragment, Component } from 'react';
 import {
   StyleSheet,
@@ -13,43 +16,54 @@ import {
   View,
   Image,
   Text,
+  Button,
 } from 'react-native';
 
-class App extends Component {
-  render() {
-    return (
+const Stack = createNativeStackNavigator();
 
-      <SafeAreaView style = {styles.container}>
-        
-        {/* <View style = {{flex:1, backgroundColor : 'red'}}></View>
-        <View style = {{flex:2, backgroundColor : 'yellow'}}></View>
-        <View style = {{flex:3, backgroundColor : 'blue'}}></View> */}
+function HomeScreen({navigation}) {
 
+  return (
+    <View style = {styles.container}>
+      <Text>Home Screen입니다.</Text>
+      <Button title='페이지 이동' onPress={() => navigation.navigate('Profile', { name : 'Jin' }) }/>
+    </View>
+  )
 
-        <View style = {{width:50, height:50, backgroundColor : 'red'}}></View>
-        <View style = {{width:50, height:50, backgroundColor : 'yellow'}}></View>
-        <View style = {{width:50, height:50, backgroundColor : 'blue'}}></View>
+}
 
-      </SafeAreaView>
+function ProfileScreen({navigation, route}) {
 
-    );
-  }
+  return (
+    <View style = {styles.container}>
+      <Text>{route.params.name}의 ProfileScreen입니다.</Text>
+    </View>
+  )
+
+}
+
+const App: () => Node = () => {
+  return (
+
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ title: 'Welcome' }}
+          />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+
+  );
 }
 
 const styles = StyleSheet.create({
   container : {
     flex : 1,
-
-    // flexDirection:'row'
-
-    // justifyContent : 'flex-start', // 세로 처음 위치
-    justifyContent : 'center', // 세로 중간 위치
-    // justifyContent : 'flex-end', // 세로 아래 위치
-
-    alignItems : 'center' // 가로 중간 위치
-    // alignItems : 'flex-end' //가로 맨끝 위치
-    // alignItems : 'stretch' // width 적용 하지 않은 상태 -> 가로 전체 영역
-
+    alignItems : 'center',
+    justifyContent : 'center'
   }
 });
 
