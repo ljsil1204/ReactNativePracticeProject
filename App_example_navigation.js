@@ -71,7 +71,7 @@ function CreatePostScreen({ navigation, route }) {
   );
 }
  
- const App: () => Node = () => {
+ const App_example_navigation: () => Node = () => {
    return (
  
     <NavigationContainer>
@@ -94,5 +94,5 @@ function CreatePostScreen({ navigation, route }) {
    }
  });
  
- export default App;
+ export default App_example_navigation;
  

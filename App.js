@@ -6,108 +6,60 @@
  * @flow strict-local
  */
 
+import React from 'react';
 import type {Node} from 'react';
-import React, {Fragment, Component } from 'react';
 import {
   StyleSheet,
-  View,
   Text,
-  Button,
-  TextInput,
+  View,
 } from 'react-native';
 
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import 'react-native-gesture-handler';
 
-const Tab = createBottomTabNavigator();
-const HomeStack = createNativeStackNavigator();
-const SettingsStack = createNativeStackNavigator();
+// const Drawer = createDrawerNavigator();
 
-function DetailsScreen() {
+function HomeScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>DetailsScreen!</Text>
-    </View>
-  );
-}
-
-function HomeScreen({navigation}) {
-  return (
-    <View style={styles.container}>
-      <Text>Home!</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       <Button
-        title='go detail'
-        onPress={() => navigation.navigate('Details')}/>
+        onPress={() => navigation.navigate('Notifications')}
+        title="Go to notifications"
+      />
     </View>
   );
 }
 
-function SettingsScreen({navigation}) {
+function NotificationsScreen({ navigation }) {
   return (
-    <View style={styles.container}>
-      <Text>Settings!</Text>
-      <Button
-        title='go detail'
-        onPress={() => navigation.navigate('Details')}/>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Button onPress={() => navigation.goBack()} title="Go back home" />
     </View>
   );
 }
 
-function HomeStackScreen() {
-  return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen name='Home' component={HomeScreen} />
-      <HomeStack.Screen name='Details' component={DetailsScreen} />
-    </HomeStack.Navigator>
-  );
-}
-
-function SettingStackScreen() {
-  return (
-    <SettingsStack.Navigator>
-      <SettingsStack.Screen name='Settings' component={SettingsScreen} />
-      <SettingsStack.Screen name='Details' component={DetailsScreen} />
-    </SettingsStack.Navigator>
-  );
-}
 
 const App: () => Node = () => {
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          headerShown : false,
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
+    <View style ={styles.container}>
+      <Text>main</Text>
+    </View>
 
-            if (route.name === 'Home') {
-              iconName = focused ? 'home-outline' : 'home-outline';
-            } else if (route.name === 'Settings') {
-              iconName = focused ? 'ios-list' : 'ios-list';
-            }
-            return <Ionicons name={iconName} size={size} color={color} />;
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-        })}
-      >
-        <Tab.Screen name="Home" component={HomeStackScreen} />
-        <Tab.Screen name="Settings" component={SettingStackScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <Drawer.Navigator initialRouteName="Home">
+    //     <Drawer.Screen name="Home" component={HomeScreen} />
+    //     <Drawer.Screen name="Notifications" component={NotificationsScreen} />
+    //   </Drawer.Navigator>
+    // </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container : {
-    flex : 1,
-    alignItems : 'center',
-    justifyContent : 'center'
+      flex : 1,
+      justifyContent : 'center',
+      alignItems : 'center'
   }
 });
 
 export default App;
- 

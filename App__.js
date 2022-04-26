@@ -71,7 +71,7 @@
  
  }
  
- const App: () => Node = () => {
+ const App__: () => Node = () => {
    return (
  
      <NavigationContainer>
@@ -107,5 +107,5 @@
    }
  });
  
- export default App;
+ export default App__;
  
